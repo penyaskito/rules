@@ -7,10 +7,7 @@
 
 namespace Drupal\Tests\rules\Integration\Action;
 
-use Drupal\rules\Plugin\Action\DataCalculateValue;
-use Drupal\Core\Plugin\Context\ContextDefinition;
 use Drupal\Tests\rules\Integration\RulesIntegrationTestBase;
-use Drupal\Tests\rules\Unit\RulesUnitTestBase;
 
 /**
  * @coversDefaultClass \Drupal\rules\Plugin\Action\DataCalculateValue
@@ -21,7 +18,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   /**
    * The action to be tested.
    *
-   * @var \Drupal\rules\Engine\RulesActionInterface
+   * @var \Drupal\rules\Core\RulesActionInterface
    */
   protected $action;
 
@@ -31,14 +28,8 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   public function setUp() {
     parent::setUp();
 
-    $this->action = new DataCalculateValue([], '', ['context' => [
-      'input_1' => new ContextDefinition('float'),
-      'operator' => new ContextDefinition('string'),
-      'input_2' => new ContextDefinition('float'),
-    ], 'provides' => ['result' => new ContextDefinition('float')]]);
+    $this->action = $this->actionManager->createInstance('rules_data_calculate_value');
 
-    $this->action->setStringTranslation($this->getMockStringTranslation());
-    $this->action->setTypedDataManager($this->getMockTypedDataManager());
   }
 
   /**

@@ -21,7 +21,7 @@ use Drupal\rules\Engine\RulesActionBase;
  *       label = @Translation("Input value 1"),
  *       description = @Translation("The first input value for the calculation.")
  *     ),
- *     "op" = @ContextDefinition("string",
+ *     "operator" = @ContextDefinition("string",
  *       label = @Translation("Operator"),
  *       description = @Translation("The calculation operator.")
  *     ),
@@ -53,7 +53,7 @@ class DataCalculateValue extends RulesActionBase {
    */
   public function execute() {
     $input_1 = $this->getContextValue('input_1');
-    $op = $this->getContextValue('op');
+    $op = $this->getContextValue('operator');
     $input_2 = $this->getContextValue('input_2');
 
     switch ($op) {

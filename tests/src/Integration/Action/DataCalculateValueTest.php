@@ -33,7 +33,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
 
     $this->action = new DataCalculateValue([], '', ['context' => [
       'input_1' => new ContextDefinition('float'),
-      'op' => new ContextDefinition('string'),
+      'operator' => new ContextDefinition('string'),
       'input_2' => new ContextDefinition('float'),
     ], 'provides' => ['result' => new ContextDefinition('float')]]);
 
@@ -59,7 +59,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
     $input_1 = mt_rand();
     $input_2 = mt_rand();
     $this->action->setContextValue('input_1', $this->getTypedData('float', $input_1))
-      ->setContextValue('op', $this->getTypedData('string', '+'))
+      ->setContextValue('operator', $this->getTypedData('string', '+'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
     $result = $this->action->getProvided('result')->getContextValue();
@@ -75,7 +75,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
     $input_1 = mt_rand();
     $input_2 = mt_rand();
     $this->action->setContextValue('input_1', $this->getTypedData('float', $input_1))
-      ->setContextValue('op', $this->getTypedData('string', '-'))
+      ->setContextValue('operator', $this->getTypedData('string', '-'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
     $result = $this->action->getProvided('result')->getContextValue();
@@ -91,7 +91,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
     $input_1 = mt_rand();
     $input_2 = mt_rand();
     $this->action->setContextValue('input_1', $this->getTypedData('float', $input_1))
-      ->setContextValue('op', $this->getTypedData('string', '*'))
+      ->setContextValue('operator', $this->getTypedData('string', '*'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
     $result = $this->action->getProvided('result')->getContextValue();
@@ -107,7 +107,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
     $input_1 = mt_rand();
     $input_2 = mt_rand();
     $this->action->setContextValue('input_1', $this->getTypedData('float', $input_1))
-      ->setContextValue('op', $this->getTypedData('string', '/'))
+      ->setContextValue('operator', $this->getTypedData('string', '/'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
     $result = $this->action->getProvided('result')->getContextValue();
@@ -123,7 +123,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
     $input_1 = mt_rand();
     $input_2 = mt_rand();
     $this->action->setContextValue('input_1', $this->getTypedData('float', $input_1))
-      ->setContextValue('op', $this->getTypedData('string', 'min'))
+      ->setContextValue('operator', $this->getTypedData('string', 'min'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
     $result = $this->action->getProvided('result')->getContextValue();
@@ -139,7 +139,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
     $input_1 = mt_rand();
     $input_2 = mt_rand();
     $this->action->setContextValue('input_1', $this->getTypedData('float', $input_1))
-      ->setContextValue('op', $this->getTypedData('string', 'max'))
+      ->setContextValue('operator', $this->getTypedData('string', 'max'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
     $result = $this->action->getProvided('result')->getContextValue();

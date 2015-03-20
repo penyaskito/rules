@@ -44,7 +44,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   /**
    * Tests the summary.
    *
-   * @covers ::summary()
+   * @covers ::summary
    */
   public function testSummary() {
     $this->assertEquals('Calculate a numeric value', $this->action->summary());
@@ -53,7 +53,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   /**
    * Tests the addition of two numeric values.
    *
-   * @covers ::execute()
+   * @covers ::execute
    */
   public function testAdditionAction() {
     $input_1 = mt_rand();
@@ -69,7 +69,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   /**
    * Tests the subtraction of one numeric value from another.
    *
-   * @covers ::execute()
+   * @covers ::execute
    */
   public function testSubtractionAction() {
     $input_1 = mt_rand();
@@ -85,7 +85,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   /**
    * Tests the multiplication of one numeric by another.
    *
-   * @covers ::execute()
+   * @covers ::execute
    */
   public function testMultiplicationAction() {
     $input_1 = mt_rand();
@@ -101,7 +101,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   /**
    * Tests the division of one numeric by another.
    *
-   * @covers ::execute()
+   * @covers ::execute
    */
   public function testDivisionAction() {
     $input_1 = mt_rand();
@@ -117,7 +117,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   /**
    * Tests the use of php's min function for 2 input values
    *
-   * @covers ::execute()
+   * @covers ::execute
    */
   public function testMinimumAction() {
     $input_1 = mt_rand();
@@ -133,7 +133,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   /**
    * Tests the use of php's max function for 2 input values
    *
-   * @covers ::execute()
+   * @covers ::execute
    */
   public function testMaximumAction() {
     $input_1 = mt_rand();

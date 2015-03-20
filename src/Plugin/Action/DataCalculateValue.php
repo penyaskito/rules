@@ -15,6 +15,7 @@ use Drupal\rules\Engine\RulesActionBase;
  * @Action(
  *   id = "rules_data_calculate_value",
  *   label = @Translation("Calculates a numeric value"),
+ *   category = @Translation("Data"),
  *   context = {
  *     "input_1" = @ContextDefinition("float",
  *       label = @Translation("Input value 1"),
@@ -37,7 +38,6 @@ use Drupal\rules\Engine\RulesActionBase;
  * )
  *
  * @todo: Add access callback information from Drupal 7.
- * @todo: Add group information from Drupal 7.
  */
 class DataCalculateValue extends RulesActionBase {
 

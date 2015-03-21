@@ -2,34 +2,32 @@
 
 /**
  * @file
- * Contains \Drupal\rules\Plugin\Action\DataCalculateDateValue.
+ * Contains \Drupal\rules\Plugin\Action\DataCalculateDateISO8601Value.
  */
 
 namespace Drupal\rules\Plugin\Action;
 
-use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\Core\TypedData\Plugin\DataType\DurationIso8601;
 use Drupal\rules\Core\RulesActionBase;
 
 /**
- * Provides a 'date calculation' action.
+ * Provides a 'date calculation' action for ISO8601 dates.
  *
  * @Action(
- *   id = "rules_data_calculate_date_value",
+ *   id = "rules_data_calculate_date_iso8601_value",
  *   label = @Translation("Calculates a date value"),
  *   category = @Translation("Data"),
  *   context = {
- *     "input_1" = @ContextDefinition("datetime_iso8601",
+ *     "datetime" = @ContextDefinition("datetime_iso8601",
  *       label = @Translation("Input value 1"),
- *       description = @Translation("The first input value for the calculation.")
+ *       description = @Translation("The datetime value for the calculation.")
  *     ),
  *     "operator" = @ContextDefinition("string",
  *       label = @Translation("Operator"),
  *       description = @Translation("The calculation operator.")
  *     ),
- *     "input_2" = @ContextDefinition("duration_iso8601",
+ *     "duration" = @ContextDefinition("duration_iso8601",
  *       label = @Translation("Input value 2"),
- *       description = @Translation("The second input value for the calculation.")
+ *       description = @Translation("The duration value for the calculation.")
  *     )
  *   },
  *  provides = {
@@ -42,7 +40,7 @@ use Drupal\rules\Core\RulesActionBase;
  * @todo: Add access callback information from Drupal 7.
  * @todo: Add defined operation options from Drupal 7.
  */
-class DataCalculateDateValue extends RulesActionBase {
+class DataCalculateDateISO8601Value extends RulesActionBase {
 
   /**
    * {@inheritdoc}
@@ -55,9 +53,9 @@ class DataCalculateDateValue extends RulesActionBase {
    * {@inheritdoc}
    */
   public function execute() {
-    $datetime = $this->getContextValue('input_1');
+    $datetime = $this->getContextValue('datetime');
     $op = $this->getContextValue('operator');
-    $duration = $this->getContextValue('input_2');
+    $duration = $this->getContextValue('duration');
 
     switch ($op) {
       case '+':
@@ -67,14 +65,6 @@ class DataCalculateDateValue extends RulesActionBase {
       case '-':
         $result = $this->applyOffset($datetime, $duration, FALSE);
         break;
-
-      case 'min':
-        $result = min($datetime, $duration);
-        break;
-
-      case 'max':
-        $result = max($datetime, $duration);
-        break;
     }
 
     if (isset($result)) {
@@ -83,7 +73,6 @@ class DataCalculateDateValue extends RulesActionBase {
   }
 
   protected function applyOffset($datetime, $duration, $positive) {
-    // @todo: Watch for performance penalty of DrupalDateTime.
     $datetime = \DateTime::createFromFormat(\DateTime::ISO8601, $datetime);
     $interval = new \DateInterval($duration);
     if ($positive) {

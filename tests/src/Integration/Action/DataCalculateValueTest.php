@@ -53,7 +53,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
       ->setContextValue('operator', $this->getTypedData('string', '+'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
-    $result = $this->action->getProvided('result')->getContextValue();
+    $result = $this->action->getProvidedContext('result')->getContextValue();
     $this->assertEquals($input_1 + $input_2, $result, "Addition calculation correct");
   }
 
@@ -69,7 +69,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
       ->setContextValue('operator', $this->getTypedData('string', '-'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
-    $result = $this->action->getProvided('result')->getContextValue();
+    $result = $this->action->getProvidedContext('result')->getContextValue();
     $this->assertEquals($input_1 - $input_2, $result, "Subtraction calculation correct");
   }
 
@@ -85,7 +85,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
       ->setContextValue('operator', $this->getTypedData('string', '*'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
-    $result = $this->action->getProvided('result')->getContextValue();
+    $result = $this->action->getProvidedContext('result')->getContextValue();
     $this->assertEquals($input_1 * $input_2, $result, "Subtraction calculation correct");
   }
 
@@ -101,7 +101,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
       ->setContextValue('operator', $this->getTypedData('string', '/'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
-    $result = $this->action->getProvided('result')->getContextValue();
+    $result = $this->action->getProvidedContext('result')->getContextValue();
     $this->assertEquals($input_1 / $input_2, $result, "Subtraction calculation correct");
   }
 
@@ -117,7 +117,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
       ->setContextValue('operator', $this->getTypedData('string', 'min'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
-    $result = $this->action->getProvided('result')->getContextValue();
+    $result = $this->action->getProvidedContext('result')->getContextValue();
     $this->assertEquals(min($input_1, $input_2), $result, "Min calculation correct");
   }
 
@@ -133,7 +133,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
       ->setContextValue('operator', $this->getTypedData('string', 'max'))
       ->setContextValue('input_2', $this->getTypedData('float', $input_2));
     $this->action->execute();
-    $result = $this->action->getProvided('result')->getContextValue();
+    $result = $this->action->getProvidedContext('result')->getContextValue();
     $this->assertEquals(max($input_1, $input_2), $result, "Max calculation correct");
   }
 }

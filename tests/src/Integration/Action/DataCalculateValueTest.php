@@ -29,7 +29,6 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
     parent::setUp();
 
     $this->action = $this->actionManager->createInstance('rules_data_calculate_value');
-
   }
 
   /**
@@ -106,7 +105,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   }
 
   /**
-   * Tests the use of php's min function for 2 input values
+   * Tests the use of min operator for 2 input values.
    *
    * @covers ::execute
    */
@@ -122,7 +121,7 @@ class DataCalculateValueTest extends RulesIntegrationTestBase {
   }
 
   /**
-   * Tests the use of php's max function for 2 input values
+   * Tests the use of max operator for 2 input values.
    *
    * @covers ::execute
    */
